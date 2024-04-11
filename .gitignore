@@ -1,0 +1,11 @@
+.idea/
+.ipynb_checkpoints/
+# Cell-Data-M/
+# Cell-Data-P1/
+# Cell-Data-P2/
+# Cell-Data/
+*.tif
+*.tiff
+*.png
+*.pth
+*.npy
