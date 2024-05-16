@@ -176,7 +176,7 @@ da_scale = {'Fluo-C2DL-MSC': 0.35,
             'BF-C2DL-HSC':0.75,
             'Cell-Data':0.6,
             'Cell-Data-P1': 0.52,
-            'Cell-Data-P2': 1.0,    # used 0.6, 0.8, 0.4 for 4623*2048
+            'Cell-Data-P2': 0.6,    # used  0.6, 0.8, 0.4 1.0 0.7 0.5 0.9 for 4623*2048
             'Cell-Data-M':  0.6    #0.52 was for 2048*908, 0.6 for 1541*2048
             }
 
@@ -441,4 +441,6 @@ if __name__ == "__main__":
                print ("check range",np.max(sample['image'].numpy()))
                print (np.max(sample['mask']))
                print (np.max(sample['dist_mask']))
+
+
                

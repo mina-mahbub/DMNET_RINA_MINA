@@ -18,7 +18,7 @@ da_scale = {'Fluo-C2DL-MSC': 0.35,
             'BF-C2DL-HSC':0.75,
             'Cell-Data':0.6,   # 0.1,  We have to use 0.6  for the Original Image
             'Cell-Data-P1':0.52, # 0.3, #0.52 We have to put it 0.6 when 1541 by 2048 images. 
-            'Cell-Data-P2':1.0, # 0.3, #0.52 We have to put it 0.6 when 1541*3 by 2048 images. 
+            'Cell-Data-P2':0.6, # 0.3, #0.52 We have to put it 0.6 when 1541*3 by 2048 images. 
             'Cell-Data-M':0.6  #  0.2, We have to put it 0.6 when 1541 by 2048 images. 
             }
 

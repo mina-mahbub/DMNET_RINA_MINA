@@ -36,14 +36,14 @@ from skimage.measure import label
 
 def simple_label(unet_output):
     plt.imshow(unet_output)
-    plt.savefig('/home/MinaHossain/DMNet_Rina/test_9.png')
+    # plt.savefig('/home/MinaHossain/DMNet_Rina/test_9.png')
     plt.imshow(unet_output*50-25)
-    plt.savefig('/home/MinaHossain/DMNet_Rina/test_10.png')
+    # plt.savefig('/home/MinaHossain/DMNet_Rina/test_10.png')
     plt.imshow(unet_output*50-25 > 0)
-    plt.savefig('/home/MinaHossain/DMNet_Rina/test_11.png')
+    # plt.savefig('/home/MinaHossain/DMNet_Rina/test_11.png')
     labels, nb = ndimage.label(unet_output*50-25 > 0)
     plt.imshow(labels)
-    plt.savefig('/home/MinaHossain/DMNet_Rina/test_12.png')
+    # plt.savefig('/home/MinaHossain/DMNet_Rina/test_12.png')
     return labels
 
 def persistence(unet_output):
@@ -222,10 +222,10 @@ def postprocess_mask_and_watermarkers(mask, markers_ori, area_thresh=50):
 
     #water_marker=watershed(markers_ori,area_thresh)
     plt.imshow(markers_ori*50.0-25, vmin=-25, vmax=25, cmap='seismic')
-    plt.savefig('/home/MinaHossain/DMNet_Rina/test_13.png')
+    # plt.savefig('/home/MinaHossain/DMNet_Rina/test_13.png')
     water_marker=persistence(markers_ori*50.0-25)
     plt.imshow(water_marker)
-    plt.savefig('/home/MinaHossain/DMNet_Rina/test_14.png')
+    # plt.savefig('/home/MinaHossain/DMNet_Rina/test_14.png')
 
     #plt.imshow(water_marker)
     #plt.show()
@@ -240,7 +240,7 @@ def postprocess_mask_and_watermarkers(mask, markers_ori, area_thresh=50):
             labels[labels == i] = 0
 
     plt.imshow(labels)
-    plt.savefig('/home/MinaHossain/DMNet_Rina/test_15.png')
+    # plt.savefig('/home/MinaHossain/DMNet_Rina/test_15.png')
 
     return labels
 

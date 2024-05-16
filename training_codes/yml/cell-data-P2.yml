@@ -8,7 +8,7 @@ pretrained: false
 pretrained_rina: True
 
 nn_framework: torch
-batch_size: 32   # 24 used in the previous training
+batch_size: 24   # 24 used in the previous training
 
 data_specs:
   width: 256
@@ -56,7 +56,7 @@ inference_augmentation:
   augmentations:
   p: 1.0
 training:
-  epochs: 400
+  epochs: 500
   steps_per_epoch:
   optimizer: Adam
   lr: 1e-3  #1e-4
