@@ -86,7 +86,7 @@ class Inferer_singleimg(object):
         with torch.no_grad():
             model.eval()
         # self.model = model.cuda()
-        self.model = model.to('cpu')
+        self.model = model.to('cpu')        #########################    CPU or CUDA  ???
 
     
     def __call__(self, im_path,contrast=False):

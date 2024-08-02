@@ -271,10 +271,10 @@ class Trainer(object):
                     if not check_continue:
                       break
             dir_path = r'/home/MinaHossain/DMNet_Rina/training_codes'
-            df1.to_csv(os.path.join(dir_path, "Train_Loss_n3a"),index=True)
-            df.to_csv(os.path.join(dir_path, "Val_Loss_n3a"),index=True)
-            # df1.to_csv(os.path.join(dir_path, "Train_Loss_n3b"),index=True)
-            # df.to_csv(os.path.join(dir_path, "Val_Loss_n3b"),index=True)
+            # df1.to_csv(os.path.join(dir_path, "Train_Loss_n3a"),index=True)
+            # df.to_csv(os.path.join(dir_path, "Val_Loss_n3a"),index=True)
+            df1.to_csv(os.path.join(dir_path, "Train_Loss_n3b"),index=True)
+            df.to_csv(os.path.join(dir_path, "Val_Loss_n3b"),index=True)
             self.save_model()
             # dir_path = r'/home/MinaHossain/DMNet_Rina/training_codes'
             # df1.to_csv(os.path.join(dir_path, "Train_Loss"),index=True)

@@ -8,7 +8,7 @@ pretrained: false
 pretrained_rina: True
 
 nn_framework: torch
-batch_size: 24   # 24 used in the previous training
+batch_size: 32   # 24 used in the previous training
 
 data_specs:
   width: 256
