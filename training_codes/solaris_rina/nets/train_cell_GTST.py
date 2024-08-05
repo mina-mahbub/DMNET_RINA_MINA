@@ -271,10 +271,10 @@ class Trainer(object):
                     if not check_continue:
                       break
             dir_path = r'/home/MinaHossain/DMNet_Rina/training_codes'
-            # df1.to_csv(os.path.join(dir_path, "Train_Loss_n3a"),index=True)
-            # df.to_csv(os.path.join(dir_path, "Val_Loss_n3a"),index=True)
-            df1.to_csv(os.path.join(dir_path, "Train_Loss_n3b"),index=True)
-            df.to_csv(os.path.join(dir_path, "Val_Loss_n3b"),index=True)
+            df1.to_csv(os.path.join(dir_path, "Train_Loss_n3a"),index=True)
+            df.to_csv(os.path.join(dir_path, "Val_Loss_n3a"),index=True)
+            # df1.to_csv(os.path.join(dir_path, "Train_Loss_n3b"),index=True)
+            # df.to_csv(os.path.join(dir_path, "Val_Loss_n3b"),index=True)
             self.save_model()
             # dir_path = r'/home/MinaHossain/DMNet_Rina/training_codes'
             # df1.to_csv(os.path.join(dir_path, "Train_Loss"),index=True)
@@ -283,40 +283,64 @@ class Trainer(object):
 
             
 
+    # def _run_torch_callbacks(self, loss, val_loss):
+    #     for cb in self.callbacks:
+    #         if isinstance(cb, TorchEarlyStopping):
+    #             cb(val_loss)
+    #             if cb.stop:
+    #                 if self.verbose:
+    #                     print('Early stopping triggered - '
+    #                           'ending training')
+    #                 return False
+
+    #         elif isinstance(cb, TorchTerminateOnNaN):
+    #             cb(val_loss)
+    #             if cb.stop:
+    #                 if self.verbose:
+    #                     print('Early stopping triggered - '
+    #                           'ending training')
+    #                 return False
+
+    #         elif isinstance(cb, TorchModelCheckpoint):
+    #             # set minimum num of epochs btwn checkpoints (not periodic)
+    #             # or
+    #             # frequency of model saving (periodic)
+    #             # cb.period = self.checkpoint_frequency
+
+    #             if cb.monitor == 'loss':
+    #                 cb(self.model, loss_value=loss)
+    #             elif cb.monitor == 'val_loss':
+    #                 cb(self.model, loss_value=val_loss)
+    #             elif cb.monitor == 'periodic':
+    #                 # no loss_value specification needed; defaults to `loss`
+    #                 # cb(self.model, loss_value=loss)
+    #                 cb(self.model)
+
+    #     return True
+    
+
+
+    ###                           #####                                  ###  Skippping the early stopping criteria.
     def _run_torch_callbacks(self, loss, val_loss):
         for cb in self.callbacks:
             if isinstance(cb, TorchEarlyStopping):
-                cb(val_loss)
-                if cb.stop:
-                    if self.verbose:
-                        print('Early stopping triggered - '
-                              'ending training')
-                    return False
-
+                # Skip early stopping by not calling the callback
+                continue
             elif isinstance(cb, TorchTerminateOnNaN):
                 cb(val_loss)
                 if cb.stop:
                     if self.verbose:
-                        print('Early stopping triggered - '
-                              'ending training')
+                        print('Terminate on NaN triggered - ending training')
                     return False
-
             elif isinstance(cb, TorchModelCheckpoint):
-                # set minimum num of epochs btwn checkpoints (not periodic)
-                # or
-                # frequency of model saving (periodic)
-                # cb.period = self.checkpoint_frequency
-
                 if cb.monitor == 'loss':
                     cb(self.model, loss_value=loss)
                 elif cb.monitor == 'val_loss':
                     cb(self.model, loss_value=val_loss)
                 elif cb.monitor == 'periodic':
-                    # no loss_value specification needed; defaults to `loss`
-                    # cb(self.model, loss_value=loss)
                     cb(self.model)
-
         return True
+
 
     def save_model(self):
         """Save the final model output."""

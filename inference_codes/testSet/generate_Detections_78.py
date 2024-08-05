@@ -141,8 +141,8 @@ def get_bestmodel(path_use):
 
 
 def get_detection(input_imgpath, save_rina_seg_path, da, gttype, model_choose="final", vis=0, all=0):
-    model_path = "/home/MinaHossain/DMNet_Rina/wdata/ctc/09"
-    # model_path = "/home/MinaHossain/DMNet_Rina/wdata/ctc"
+    # model_path = "/home/MinaHossain/DMNet_Rina/wdata/ctc/09"
+    model_path = "/home/MinaHossain/DMNet_Rina/wdata/ctc/07"
 
     if all:
         if "BF" in da:
