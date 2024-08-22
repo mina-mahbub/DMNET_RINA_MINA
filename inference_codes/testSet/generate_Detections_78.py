@@ -140,6 +140,7 @@ def get_bestmodel(path_use):
     return mask_model_path
 
 
+
 def get_detection(input_imgpath, save_rina_seg_path, da, gttype, model_choose="final", vis=0, all=0):
     # model_path = "/home/MinaHossain/DMNet_Rina/wdata/ctc/09"
     model_path = "/home/MinaHossain/DMNet_Rina/wdata/ctc/10"
@@ -196,7 +197,7 @@ def get_detection(input_imgpath, save_rina_seg_path, da, gttype, model_choose="f
     imglist = sorted(glob.glob(path_imglist))
 
 
-    # count=0                                                          ######## ### Restricting the number of images
+    count=0                                                          ######## ### Restricting the number of images
     for imgp in tqdm(imglist):
         # print (imgp)
         mask_name = "mask" + imgp.split('/')[-1].split('.tif')[0].split('t')[-1] + ".tif"
@@ -388,11 +389,11 @@ def get_detection(input_imgpath, save_rina_seg_path, da, gttype, model_choose="f
         center_marker_det, _, __ = relabel_sequential(center_marker_det.astype(np.uint16))
         sio.imsave(savepp, center_marker_det)
         
-        # count +=1
-        # if count >=5:
+        count +=1
+        if count >=3:
         
 
-        #     break
+            break
 
 
 
