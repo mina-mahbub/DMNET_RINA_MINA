@@ -21,7 +21,7 @@ area_thresh_all = {"BF-C2DL-MuSC": [0, 100],
                    "DIC-C2DH-HeLa": [200, 0.5 * 834],
                    "Cell-Data": [3300,0.50, 0.50],    #[3300,0.99,0.5]
                    "Cell-Data-P1": [800, 0.99, 0.50], # [1200, 0.7, 0.1] #[800, 0.99, 0.5]
-                   "Cell-Data-P2": [15500, 0.95, 0.55],  # Area threshold, marker threshold, mask threshold # [1200, 0.7, 0.1]  # Previous results were obtained at # [6600, 0.99, 0.5]
+                   "Cell-Data-P2": [11500, 0.90, 0.50],  # Area threshold, marker threshold, mask threshold # [1200, 0.7, 0.1]  # Previous results were obtained at # [6600, 0.99, 0.5]
                    "Cell-Data-M": [6600, 0.99, 0.50],  # [1500, 0.7, 0.3]  #[800, 0.99, 0.5]
                    "Fluo-N2DH-GOWT1": [0, 200]}    #### before tuning  [1500, 0.7, 0.3]  ####   after tuning [800, .99, .5]
 
@@ -143,7 +143,7 @@ def get_bestmodel(path_use):
 
 def get_detection(input_imgpath, save_rina_seg_path, da, gttype, model_choose="final", vis=0, all=0):
     # model_path = "/home/MinaHossain/DMNet_Rina/wdata/ctc/09"
-    model_path = "/home/MinaHossain/DMNet_Rina/wdata/ctc/10"
+    model_path = "/home/MinaHossain/DMNet_Rina/wdata/ctc/11"
 
     if all:
         if "BF" in da:
@@ -390,7 +390,7 @@ def get_detection(input_imgpath, save_rina_seg_path, da, gttype, model_choose="f
         sio.imsave(savepp, center_marker_det)
         
         count +=1
-        if count >=3:
+        if count >=5:
         
 
             break
