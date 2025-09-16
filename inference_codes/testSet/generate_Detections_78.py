@@ -21,7 +21,7 @@ area_thresh_all = {"BF-C2DL-MuSC": [0, 100],
                    "DIC-C2DH-HeLa": [200, 0.5 * 834],
                    "Cell-Data": [3300,0.50, 0.50],    #[3300,0.99,0.5]
                    "Cell-Data-P1": [800, 0.99, 0.50], # [1200, 0.7, 0.1] #[800, 0.99, 0.5]
-                   "Cell-Data-P2": [15500, 0.90, 0.50],  # Area threshold, marker threshold, mask threshold # [1200, 0.7, 0.1]  # Previous results were obtained at # [6600, 0.99, 0.5]
+                   "Cell-Data-P2": [21500, 0.99, 0.50],  # Area threshold, marker threshold, mask threshold # [1200, 0.7, 0.1]  # Previous results were obtained at # [6600, 0.99, 0.5]
                    "Cell-Data-M": [6600, 0.99, 0.50],  # [1500, 0.7, 0.3]  #[800, 0.99, 0.5]
                    "Fluo-N2DH-GOWT1": [0, 200]}    #### before tuning  [1500, 0.7, 0.3]  ####   after tuning [800, .99, .5]
 
@@ -197,7 +197,7 @@ def get_detection(input_imgpath, save_rina_seg_path, da, gttype, model_choose="f
     imglist = sorted(glob.glob(path_imglist))
 
 
-    count=0                                                          ######## ### Restricting the number of images
+    # count=0                                                          ######## ### Restricting the number of images
     for imgp in tqdm(imglist):
         # print (imgp)
         mask_name = "mask" + imgp.split('/')[-1].split('.tif')[0].split('t')[-1] + ".tif"
@@ -389,11 +389,11 @@ def get_detection(input_imgpath, save_rina_seg_path, da, gttype, model_choose="f
         center_marker_det, _, __ = relabel_sequential(center_marker_det.astype(np.uint16))
         sio.imsave(savepp, center_marker_det)
         
-        count +=1
-        if count >=5:
+        # count +=1
+        # if count >=16:
         
 
-            break
+        #     break
 
 
 
